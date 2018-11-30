@@ -1,43 +1,95 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title — moja aplikacja platformy ASP.NET</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <style>
+
+
+
+
+        img {
+            width: 100%;
+        }
+
+        .czesc {
+            float: right;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 30px;
+            font-size: 15px;
+        }
+
+        .czesc_log {
+            color: white;
+        }
+
+
+
+        .name {
+            float: left;
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-size: 30px;
+            padding-bottom: 30px;
+        }
+
+        body {
+            background-color: indigo;
+        }
+
+        .czesc_log:hover {
+            background-color: black;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nazwa aplikacji", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+
+            <div class="name">
+
+                <a class="logo" href="@Url.Action("meetup", "Home")">MEETUP </a>
+
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Informacje", "About", "Home")</li>
-                    <li>@Html.ActionLink("Kontakt", "Contact", "Home")</li>
-                </ul>
+            <div class="czesc">
+                <a class="czesc_log" href="@Url.Action("rejestracja", "Home")">Rejestracja</a>
             </div>
+            <div class="czesc">
+                <a class="czesc_log" href="@Url.Action("logowanie", "Home")">Logowanie</a>
+            </div>
+            <div class="czesc">
+                <a class="czesc_log" href="@Url.Action("rezerwuj", "Home")">Rezerwuj Online</a>
+            </div>
+            <div class="czesc">
+                <a class="czesc_log" href="@Url.Action("Index", "Home")">Home</a>
+            </div>
+
+
+
+
+
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year — moja aplikacja platformy ASP.NET</p>
-        </footer>
+
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <div class="container body-content">
+        @RenderBody()
+
+
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>
