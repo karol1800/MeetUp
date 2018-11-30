@@ -17,19 +17,12 @@ namespace MeetUp.Controllers
             //DAL.MeetUpContext db = new DAL.MeetUpContext();
             return View();
         }
-
-        public ActionResult About()
+        
+        public ActionResult Profil(int id)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            Profil ktos = new Profil();
+            User c = ktos.ZnajdzUsera(id);
+            return View(c);
         }
 
         [HttpGet]

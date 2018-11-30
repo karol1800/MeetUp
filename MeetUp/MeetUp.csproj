@@ -157,6 +157,10 @@
     <Compile Include="Migrations\201811301125302_pierwsza.Designer.cs">
       <DependentUpon>201811301125302_pierwsza.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811301239122_druga.cs" />
+    <Compile Include="Migrations\201811301239122_druga.Designer.cs">
+      <DependentUpon>201811301239122_druga.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Message.cs" />
@@ -165,6 +169,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Login.cs" />
+    <Compile Include="ViewModels\Profil.cs" />
     <Compile Include="ViewModels\UserAdd.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -207,13 +212,17 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Logowanie.cshtml" />
+    <Content Include="Views\Home\Rejestracja.cshtml" />
+    <Content Include="Views\Home\Profil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811301125302_pierwsza.resx">
       <DependentUpon>201811301125302_pierwsza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811301239122_druga.resx">
+      <DependentUpon>201811301239122_druga.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

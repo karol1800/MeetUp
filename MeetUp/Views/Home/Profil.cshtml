@@ -1,0 +1,48 @@
+﻿@model MeetUp.Models.User
+@{
+    ViewBag.Title = "Profil";
+}
+
+<h2>Profil</h2>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css">
+    <title>Registration</title>
+</head>
+<body style="background-color: purple; margin: 0; padding: 0">
+    
+    <h2 style="text-align:center; color:black">Twój profil</h2>
+    <div style="height:40px"></div>
+    <div style="color:black">
+        @using (Html.BeginForm())
+        {
+            <div style="height:40px"></div>
+            <table>
+                <tr class="form-group" style="height:40px">
+                    <td style="text-align: right; font:800; font-size:large; color: black">@Html.DisplayNameFor(m => Model.login)</td>
+                    <td>@Html.DisplayFor(m => Model.login)</td>
+                </tr>
+                <tr class="form-group" style="height:40px">
+                    <td style="text-align: right; font:800; font-size:large; color: black">@Html.DisplayNameFor(m => Model.name)</td>
+                    <td>@Html.DisplayFor(m => Model.name)</td>
+                </tr>
+                <tr class="form-group" style="height:40px">
+                    <td style="text-align: right; font:800; font-size:large; color: black">@Html.DisplayNameFor(m => Model.surname)</td>
+                    <td>@Html.DisplayFor(m => Model.surname)</td>
+                </tr>
+                <tr class="form-group" style="height:40px">
+                    <td style="text-align: right; font:800; font-size:large; color: black">@Html.DisplayNameFor(m => Model.age)</td>
+                    <td>@Html.DisplayFor(m => Model.age)</td>
+                </tr>
+
+            </table>
+        }
+
+
+    </div>
+</body>
+</html>

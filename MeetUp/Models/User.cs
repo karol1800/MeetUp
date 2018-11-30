@@ -25,6 +25,9 @@ namespace MeetUp.Models
         [Compare("password")]
         public string confirmedpassword { get; set; }
 
+        [Display(Name = "Imię")]
+        public string name { get; set; }
+
         [Display(Name = "Nazwisko")]
         public string surname { get; set; }
 
