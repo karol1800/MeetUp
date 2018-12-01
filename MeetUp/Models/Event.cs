@@ -12,7 +12,7 @@ namespace MeetUp.Models
         [Key]
         [ForeignKey("User")]
         public int Id { get; set; }
-
+     
         [Display(Name = "Nazwa:")]
         public string Name { get; set; }
 
