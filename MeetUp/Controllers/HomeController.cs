@@ -113,5 +113,35 @@ namespace MeetUp.Controllers
             Session.Abandon();
             return RedirectToAction("Logowanie", "Home");
         }
+
+        public ActionResult Archiwium()
+        {
+            ArchiwEvent archiw = new ArchiwEvent();
+            EventBL eventBL = new EventBL();
+            List<Event> events = new List<Event>();
+            /*Event e = new Event();
+            e.Id = 1;
+            e.Name = "Concert Oasis";
+            e.number = 10000;
+            e.palce = "Torwar";
+            User u = new User();
+            u.login = "oasismania";
+            e.User = u;
+            events.Add(e);
+            Event e1 = new Event();
+            User u1 = new User();
+            e1.Id = 2;
+            e1.Name = "Warsaw Comic Con";
+            e1.number = 15000;
+            e1.palce = "PTAK WARSAW EXPO";
+            
+            u1.login = "wccOfficial";
+            e1.User = u1;
+            events.Add(e1);*/
+            events = eventBL.GetEvents();
+            events.Reverse();
+            archiw.Events = events;
+            return View(archiw);
+        }
     }
 }

@@ -163,6 +163,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="ViewModels\ArchiwEvent.cs" />
+    <Compile Include="ViewModels\EventBL.cs" />
     <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Newsletter.cs" />
     <Compile Include="Models\Stand.cs" />
@@ -216,6 +218,7 @@
     <Content Include="Views\Home\Logowanie.cshtml" />
     <Content Include="Views\Home\Rejestracja.cshtml" />
     <Content Include="Views\Home\Profil.cshtml" />
+    <Content Include="Views\Home\Archiwium.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811301125302_pierwsza.resx">
