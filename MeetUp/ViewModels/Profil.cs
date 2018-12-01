@@ -24,5 +24,11 @@ namespace MeetUp.ViewModels
             c = baza.Users.Find(id);
             return c;
         }
+        public List<Event> GetUserEvent(User u)
+        {
+            MeetUpContext baza = new MeetUpContext();
+            List<Event> lista = baza.Events.Where(x => x.User.userId == u.userId).ToList();
+            return lista;
+        }
     }
 }

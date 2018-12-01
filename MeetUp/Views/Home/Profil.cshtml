@@ -1,4 +1,5 @@
-﻿@model MeetUp.Models.User
+﻿@using MeetUp
+@model dynamic
 @{
     ViewBag.Title = "Profil";
 }
@@ -23,24 +24,59 @@
             <div style="height:40px"></div>
             <table>
                 <tr class="form-group" style="height:40px">
-                    <td style="text-align: right; font:800; font-size:large; color: black">@Html.DisplayNameFor(m => Model.login)</td>
-                    <td>@Html.DisplayFor(m => Model.login)</td>
+                    <td style="text-align: right; font:800; font-size:large; color: black">Login: </td>
+                    <td style="text-align: left; font:800; font-size:large; color: black">@Model.User.login</td>
                 </tr>
                 <tr class="form-group" style="height:40px">
-                    <td style="text-align: right; font:800; font-size:large; color: black">@Html.DisplayNameFor(m => Model.name)</td>
-                    <td>@Html.DisplayFor(m => Model.name)</td>
+                    <td style="text-align: right; font:800; font-size:large; color: black">Imię: </td>
+                    <td style="text-align: left; font:800; font-size:large; color: black">@Model.User.name</td>
                 </tr>
                 <tr class="form-group" style="height:40px">
-                    <td style="text-align: right; font:800; font-size:large; color: black">@Html.DisplayNameFor(m => Model.surname)</td>
-                    <td>@Html.DisplayFor(m => Model.surname)</td>
+                    <td style="text-align: right; font:800; font-size:large; color: black">Nazwisko: </td>
+                    <td style="text-align: left; font:800; font-size:large; color: black">@Model.User.surname</td>
                 </tr>
                 <tr class="form-group" style="height:40px">
-                    <td style="text-align: right; font:800; font-size:large; color: black">@Html.DisplayNameFor(m => Model.age)</td>
-                    <td>@Html.DisplayFor(m => Model.age)</td>
+                    <td style="text-align: right; font:800; font-size:large; color: black">Wiek: </td>
+                    <td style="text-align: left; font:800; font-size:large; color: black">@Model.User.age</td>
+
                 </tr>
 
             </table>
         }
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Nazwa</th>
+                <th>Liczba biletów</th>
+                <th>Miejsce</th>
+                <th>Data</th>
+            </tr>
+            @foreach (var e in Model.Events)
+            {
+            <tr>
+                <td>
+                    @e.Id
+                </td>
+                <td>
+                    @e.Name
+                </td>
+                <td>
+                    @e.number
+                </td>
+                <td>
+                    @e.palce
+                </td>
+                <td>
+                    @e.Date
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit") |
+                    @Html.ActionLink("Details", "Details") |
+                    @Html.ActionLink("Delete", "Delete")
+                </td>
+            </tr>
+            }
+        </table>
 
 
     </div>

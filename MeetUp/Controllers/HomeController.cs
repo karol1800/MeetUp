@@ -3,6 +3,7 @@ using MeetUp.Models;
 using MeetUp.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -14,15 +15,38 @@ namespace MeetUp.Controllers
     {
         public ActionResult Index()
         {
-            //DAL.MeetUpContext db = new DAL.MeetUpContext();
+            /*DAL.MeetUpContext db = new DAL.MeetUpContext();
+            User u1 = new User() { userId = 1, name = "Jan", surname = "Kowalski", age = 30, password = "123456789", confirmedpassword = "123456789", login = "admin" };
+            User u2 = new User() { userId = 2, name = "Arek", surname = "Grygoruk", age = 21, password = "987654321", confirmedpassword = "987654321", login = "crazyoll" };
+            Event e1 = new Event() { Date = DateTime.Now, Id = 1, Name = "tak admina", number = 5000, palce = "Warszawa", User = u1 };
+            Event e2 = new Event() { Date = DateTime.Now, Id = 2, Name = "tak admina v2", number = 300, palce = "Bialystok", User = u1 };
+            Event e3 = new Event() { Date = DateTime.Now, Id = 3, Name = "usera", number = 3000, palce = "PB", User = u2 };
+            db.Users.Add(u1);
+            db.Users.Add(u2);
+            db.Events.Add(e1);
+            db.Events.Add(e2);
+            db.Events.Add(e3);
+            db.SaveChanges();*/
             return View();
         }
         
-        public ActionResult Profil(int id)
+        public ActionResult Profil(int id = -1)
         {
+            try
+            {
+                id = Int32.Parse(Session["userId"].ToString());
+            }
+            catch
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            //id = Int32.Parse(Session["userId"].ToString());
+            dynamic mymodel = new ExpandoObject();
             Profil ktos = new Profil();
             User c = ktos.ZnajdzUsera(id);
-            return View(c);
+            mymodel.User = c;
+            mymodel.Events = ktos.GetUserEvent(c);
+            return View(mymodel);
         }
 
         [HttpGet]
